@@ -848,7 +848,7 @@ if __name__ == "__main__":
             clean_end()
         print("Wrote {} - {} bytes".format(thisfn, hex(len(v[0]))))
         
-        # thisfn = fn + "_inst" + vfn
+        thisfn = fn + "_inst" + vfn
         try:
             with open(thisfn, 'wb') as f:
                 f.write(bytes(v[1]))
