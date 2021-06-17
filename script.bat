@@ -1,6 +1,11 @@
 @echo off
 python mml2mfvi.py %*
-ren *data.bin wantedFileName
-move F:\SariaFolder1\wantedFileName F:\SariaFolder2
-
+Setlocal EnableDelayedExpansion
+@for /f "delims=" %%i in ('dir /b *.bin')  do (
+    set fname=%%~ni
+    set fname=!fname:~0,-5!.bin
+    ren "%%i" "!fname!"
+)
+endlocal
+for /r "F:\Saria\" %%x in (*.bin) do move "%%x" "F:\Saria2\"
 pause
