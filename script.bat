@@ -1,5 +1,8 @@
 @echo off
 python mml2mfvi.py %*
+del *_inst.bin
+move *.bin F:\Saria2
+cd F:\Saria2
 Setlocal EnableDelayedExpansion
 @for /f "delims=" %%i in ('dir /b *.bin')  do (
     set fname=%%~ni
@@ -7,5 +10,4 @@ Setlocal EnableDelayedExpansion
     ren "%%i" "!fname!"
 )
 endlocal
-for /r "F:\Saria\" %%x in (*.bin) do move "%%x" "F:\Saria2\"
 pause
